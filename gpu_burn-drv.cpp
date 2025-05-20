@@ -649,6 +649,9 @@ void listenClients(std::vector<int> clientFd, std::vector<pid_t> clientPid,
     printf("\nTested %d GPUs:\n", (int)clientPid.size());
     for (size_t i = 0; i < clientPid.size(); ++i)
         printf("\tGPU %d: %s\n", (int)i, clientFaulty.at(i) ? "FAULTY" : "OK");
+    printf("\nAvg Gflops:\n");
+    for (size_t i = 0; i < clientPid.size(); ++i)
+        printf("\tGPU %d: %.0f\n", (int)i, clientGflops.at(i));
 }
 
 template <class T>
